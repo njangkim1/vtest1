@@ -1,5 +1,5 @@
 #!/bin/bash
-printf "\e[32;1mDid you connect to your target AKS cluster, using: az aks get-credentials --name prashantAKSCluster --resource-group prashantRG? [yes/no]\e[0m \n"
+printf "\e[32;1mDid you connect to your target AKS cluster, using: az aks get-credentials --name prashantAKSClusterrestore --resource-group prashantresRG? [yes/no]\e[0m \n"
 read -e input
 
 if [ "$input" == "yes" ] || [ "$input" == "y" ] || [ "$input" == "YES" ] || [ "$input" == "Y" ]
@@ -51,7 +51,7 @@ then
 	#Define the variables.
 	TENANT_ID=${TENANT_ID//[\"\'\ ]} && echo TENANT_ID=${TENANT_ID}
 	SUBSCRIPTION_ID=${SUBSCRIPTION_ID//[\"\'\ ]} && echo SUBSCRIPTION_ID=${SUBSCRIPTION_ID}
-	BACKUP_RESOURCE_GROUP=Velero_Backups && echo BACKUP_RESOURCE_GROUP=${BACKUP_RESOURCE_GROUP} 
+	BACKUP_RESOURCE_GROUP=BACKUP_RESOURCE_GROUP=${TARGET_AKS_INFRASTRUCTURE_RESOURCE_GROUP} 
 	BACKUP_STORAGE_ACCOUNT_NAME=${BACKUP_STORAGE_ACCOUNT_NAME//[\"\'\ ]} && echo BACKUP_STORAGE_ACCOUNT_NAME=${BACKUP_STORAGE_ACCOUNT_NAME}
 	VELERO_SP_DISPLAY_NAME=velero$RANDOM && echo VELERO_SP_DISPLAY_NAME=$VELERO_SP_DISPLAY_NAME
 	TARGET_AKS_INFRASTRUCTURE_RESOURCE_GROUP=${TARGET_AKS_INFRASTRUCTURE_RESOURCE_GROUP//[\"\'\ ]} && echo TARGET_AKS_INFRASTRUCTURE_RESOURCE_GROUP=$TARGET_AKS_INFRASTRUCTURE_RESOURCE_GROUP
